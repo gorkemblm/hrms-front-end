@@ -1,0 +1,28 @@
+.jobAdvertisement {
+    margin-top: 5em;
+}
+
+.pagination {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.corporateImage {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.companyName {
+    background-color: chocolate;
+    text-align: center;
+    border: solid;
+    border-radius: 1em;
+    font-family: 'Kanit', sans-serif;
+}
+
+.occupationName {
+    font-family: 'Raleway', sans-serif;
+    
+}
