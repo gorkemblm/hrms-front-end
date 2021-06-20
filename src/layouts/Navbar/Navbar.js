@@ -1,90 +1,35 @@
 import React, { useState } from 'react';
-import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import Dropdown from './Dropdown';
+import SignedId from '../Navbar/SignedIn'
+import SignedOut from '../Navbar/SignedOut'
 
 function Navbar() {
   const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
 
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
+  const handleSignIn = () => setIsAuthenticated(true)
+
+  const handleSignOut = () => setIsAuthenticated(false)
 
   return (
     <>
+
       <nav className='navbar'>
+
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
           HRMS
         </Link>
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Hakkımızda
-            </Link>
-          </li>
-          <li
-            className='nav-item'
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            <Link
-              to='/services'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Hizmetlerimiz <i className='fas fa-caret-down' />
-            </Link>
-            {dropdown && <Dropdown />}
-          </li>
-          <li className='nav-item'>
-            <Link
-              to='/jobAdvertisements'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              İlanlarımız
-            </Link>
-          </li>
-          <li className='nav-item'>
-            <Link
-              to='/contact-us'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              İletişim
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='/sign-up'
-              className='nav-links-mobile'
-              onClick={closeMobileMenu}
-            >
-              Bize Katıl
-            </Link>
-          </li>
-        </ul>
-        <Button />
+        {
+          isAuthenticated ? <SignedId signOut={handleSignOut} /> : <SignedOut signIn={handleSignIn} />
+        }
       </nav>
     </>
   );
