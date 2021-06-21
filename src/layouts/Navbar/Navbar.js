@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
+<<<<<<< Updated upstream
 import { Button } from './Button';
+=======
+<<<<<<< Updated upstream
+=======
+import { Button } from '../Navbar/Button.css';
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Dropdown from './Dropdown';
