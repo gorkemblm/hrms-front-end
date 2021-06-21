@@ -1,16 +1,16 @@
 export const MenuItems = [
     {
       title: 'İş İlanı Ver',
-      path: '/sign-up',
+      path: '/sign-up-employer',
       cName: 'dropdown-link'
     },
     {
-      title: 'Cv Oluştur',
-      path: '/sign-up',
+      title: 'Özgeçmiş Oluştur',
+      path: '/sign-up-job-seeker',
       cName: 'dropdown-link'
     },
     {
-      title: 'Ekibimize Katıl',
+      title: 'Kariyer Fırsatları',
       path: '/application',
       cName: 'dropdown-link'
     }

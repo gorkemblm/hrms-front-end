@@ -2,18 +2,19 @@
     --primary: #1888ff;
   }
   
-  .btn {
+  .button  {
     padding: 8px 20px;
     border-radius: 4px;
     outline: none;
     border: none;
-    font-size: 18px;
+    font-size: 15px;
     color: #fff;
     cursor: pointer;
     background-color: var(--primary);
+    margin-left: 0.5em;
   }
   
-  .btn:hover {
+  .button:hover {
     padding: 6px 18px;
     transition: all 0.3s ease-out;
     background-color: transparent;
