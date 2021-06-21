@@ -15,6 +15,15 @@
     text-decoration: none;
     font-size: 2rem;
   }
+
+  .navbar-homePage {
+    color: #fff;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+  }
   
   .fa-firstdraft {
     margin-left: 0.5rem;
@@ -136,5 +145,9 @@
     button {
       display: none;
     }
+  }
+
+  .ui.icon.input.searchBar {
+    width: 500px;
   }
   
