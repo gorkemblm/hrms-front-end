@@ -1,6 +1,7 @@
 import React from 'react'
-import { Icon, Input, Image, Menu, Dropdown, Container } from 'semantic-ui-react'
+import { Icon, Input, Image, Menu, Dropdown, Container, Label } from 'semantic-ui-react'
 import '../Navbar/Navbar.css';
+import { NavLink } from 'react-router-dom';
 
 export default function SignedIn({ signOut }) {
     return (
@@ -12,17 +13,15 @@ export default function SignedIn({ signOut }) {
                             className='searchBar'
                             icon={<Icon name='search' inverted circular link />}
                             placeholder='Search...'
-                        />                        
+                        />
                     </Container>
                 </li>
 
                 <div className='profile'>
                     <Menu.Item position='right'>
-                        <Image avatar spaced="right" src="https://res.cloudinary.com/gorkemblm/image/upload/v1623418067/file_oslkvg.jpg" />
-                        <Dropdown pointing="top right"style={{color:'white'}} text="Görkem Bilim">
+                        <Dropdown pointing="top right" style={{ color: 'white' }} text="Görkem Bilim">
                             <Dropdown.Menu>
-                                <Dropdown.Item text="Bilgilerim" icon="info" />
-                                <Dropdown.Item text="Gelen Kutusu" icon="mail" />
+                                <Dropdown.Item as={NavLink} to='/jobseeker' text="Bilgilerim" icon="info" />
                                 <Dropdown.Item onClick={signOut} text="Çıkış yap" icon="sign-out" />
                             </Dropdown.Menu>
                         </Dropdown>
