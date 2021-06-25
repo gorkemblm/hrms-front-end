@@ -13,6 +13,8 @@ import { Container, Grid } from 'semantic-ui-react'
 import OccupationDetail from '../pages/OccupationDetail'
 import EmployerDetail from '../pages/EmployerDetail'
 import JobSeekerDetail from '../pages/JobSeekerDetail'
+import JobSeekerProfile from '../pages/JobSeekerProfile'
+import EmployerProfile from '../pages/EmployerProfile'
 
 export default function Dashboard() {
     return (
@@ -21,13 +23,15 @@ export default function Dashboard() {
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={4}>
+                            <Route exact path='/sidebar' component={JobSeekerProfile}/>
                         </Grid.Column>
                         <Grid.Column width={12}>
                             <Route exact path='/' component={Home} />
-                            <Route path='/jobAdvertisements' component={JobAdvertisementList} />
+                            
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
+                <Route path='/jobAdvertisements' component={JobAdvertisementList} />
                 <Route path='/employers' component={EmployerList} />
                 <Route path='/jobSeekers' component={JobSeekerList} />
                 <Route path='/occupations' component={OccupationList} />
@@ -38,6 +42,8 @@ export default function Dashboard() {
                 <Route path='/occupation/:id' component={OccupationDetail} />
                 <Route path='/employer/:id' component={EmployerDetail} />
                 <Route path='/jobSeeker/:id' component={JobSeekerDetail} />
+                <Route path='/jobseeker' component={JobSeekerProfile} />
+                <Route path='/employer' component={EmployerProfile} />
             </Container>
         </div>
     )
