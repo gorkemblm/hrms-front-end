@@ -69,5 +69,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-[Component Diagram]
-<img src="https://github.com/gorkemblm/HRMS-FrontEnd/Component Diagram.png"/>
+<img src="https://github.com/gorkemblm/HRMS-FrontEnd/blob/main/Component%20Diagram.png"/>
