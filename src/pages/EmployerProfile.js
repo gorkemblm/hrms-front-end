@@ -1,12 +1,8 @@
 import React from 'react'
-import { Menu, Grid, Button, Header, Icon, Segment, Image, Label, Modal, Form, TextArea } from 'semantic-ui-react'
-import { Route } from 'react-router'
-import { NavLink } from 'react-router-dom'
+import { Menu, Grid, Icon, Image, Label } from 'semantic-ui-react'
 import JobAdvertisementAdd from './JobAdvertisementAdd'
 
 export default function EmployerProfile() {
-
-
 
     return (
         <div>
@@ -37,7 +33,7 @@ export default function EmployerProfile() {
                         </Menu>
                     </Grid.Column>
                     <Grid.Column width={12}>
-                        {/* <JobAdvertisementAdd /> */}
+                        <JobAdvertisementAdd />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
