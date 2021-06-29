@@ -1,5 +1,10 @@
-import React from 'react'
-import { Menu, Grid, Button, Icon, Segment, Header, Rating, Modal, Form, TextArea, Checkbox, Dropdown } from 'semantic-ui-react'
+import React, { useState, useEffect } from 'react'
+import { Button, Icon, Segment, Header, Rating, Modal, Form } from 'semantic-ui-react'
+import AddCoverLetter from './CurriculumVitae/AddCoverLetter'
+import AddSchool from './CurriculumVitae/AddSchool'
+import AddWorkExperience from './CurriculumVitae/AddWorkExperience'
+import AddLanguage from './CurriculumVitae/AddLanguage'
+import AddSocialMedia from './CurriculumVitae/AddSocialMedia'
 
 export default function CurriculumVitaeAdd() {
 
@@ -7,7 +12,9 @@ export default function CurriculumVitaeAdd() {
     const [openSchool, setOpenSchool] = React.useState(false)
     const [openExperience, setOpenExperience] = React.useState(false)
     const [openLanguage, setOpenLanguage] = React.useState(false)
-    const [openSocial, setOpenSocial] = React.useState(false)
+    const [openGithub, setOpenGithub] = React.useState(false)
+    const [openLinkedin, setOpenLinkedin] = React.useState(false)
+
 
     return (
         <div>
@@ -30,16 +37,14 @@ export default function CurriculumVitaeAdd() {
                     onOpen={() => setOpenResume(true)}
                     open={openResume}
                     size='small'
-                    trigger={<Button icon primary>Düzenle</Button>}
+                    trigger={<Button icon primary>Güncelle</Button>}
                 >
                     <Header icon>
                         <Icon name='archive' />
                         ÖZ GEÇMİŞ
                     </Header>
                     <Modal.Content>
-                        <Form>
-                            <TextArea placeholder='Bize kendinden bahsedebilirsin' style={{ minHeight: 100 }} />
-                        </Form>
+                        <AddCoverLetter />
                     </Modal.Content>
                     <Modal.Actions>
                         <Button basic color='red' inverted onClick={() => setOpenResume(false)}>
@@ -90,48 +95,7 @@ export default function CurriculumVitaeAdd() {
                         OKUL EKLE
                     </Header>
                     <Modal.Content>
-                        <Form>
-                            <Segment>
-                                <Segment.Group>
-                                    <Header as='h3' attached='top'>
-                                        <Form.Field>
-                                            <label>Okul Adı</label>
-                                            <input placeholder='Okul Adı' />
-                                        </Form.Field>
-                                    </Header>
-                                    <Segment attached color='black'>
-                                        <Form.Field>
-                                            <label>Bölüm Adı</label>
-                                            <input placeholder='Bölüm Adı' />
-                                        </Form.Field>
-                                    </Segment>
-                                    <Segment.Group horizontal>
-                                        <Segment >
-                                            <Form.Field>
-                                                <label>Başlangıç Yılı:</label>
-                                                <input placeholder='Başlangıç Yılı' />
-                                            </Form.Field>
-                                        </Segment>
-                                        <Segment>
-                                            <Form.Field>
-                                                <label>Bitiş Yılı:</label>
-                                                <input placeholder='Bitiş Yılı' />
-                                            </Form.Field>
-                                        </Segment>
-                                    </Segment.Group>
-                                    <Segment>
-                                        <Form.Group>
-                                            <Form.Field>
-                                                <Checkbox label='Mezun oldum' defaultChecked />
-                                            </Form.Field>
-                                            <Form.Field>
-                                                <Checkbox style={{ marginLeft: '1em' }} label='Devam ediyorum' />
-                                            </Form.Field>
-                                        </Form.Group>
-                                    </Segment>
-                                </Segment.Group>
-                            </Segment>
-                        </Form>
+                        <AddSchool />
                     </Modal.Content>
                     <Modal.Actions>
                         <Button basic color='red' inverted onClick={() => setOpenSchool(false)}>
@@ -182,48 +146,7 @@ export default function CurriculumVitaeAdd() {
                         İŞ DENEYİMİ EKLE
                     </Header>
                     <Modal.Content>
-                        <Form>
-                            <Segment>
-                                <Segment.Group>
-                                    <Header as='h3' attached='top'>
-                                        <Form.Field>
-                                            <label>İş Yeri Adı</label>
-                                            <input placeholder='İş Yeri Adı' />
-                                        </Form.Field>
-                                    </Header>
-                                    <Segment attached color='black'>
-                                        <Form.Field>
-                                            <label>Departman Adı</label>
-                                            <input placeholder='Departman Adı' />
-                                        </Form.Field>
-                                    </Segment>
-                                    <Segment.Group horizontal>
-                                        <Segment >
-                                            <Form.Field>
-                                                <label>Başlangıç Yılı:</label>
-                                                <input placeholder='Başlangıç Yılı' />
-                                            </Form.Field>
-                                        </Segment>
-                                        <Segment>
-                                            <Form.Field>
-                                                <label>Bitiş Yılı:</label>
-                                                <input placeholder='Bitiş Yılı' />
-                                            </Form.Field>
-                                        </Segment>
-                                    </Segment.Group>
-                                    <Segment>
-                                        <Form.Group>
-                                            <Form.Field>
-                                                <Checkbox label='İşten Ayrıldım' defaultChecked />
-                                            </Form.Field>
-                                            <Form.Field>
-                                                <Checkbox style={{ marginLeft: '1em' }} label='Devam ediyorum' />
-                                            </Form.Field>
-                                        </Form.Group>
-                                    </Segment>
-                                </Segment.Group>
-                            </Segment>
-                        </Form>
+                        <AddWorkExperience />
                     </Modal.Content>
                     <Modal.Actions>
                         <Button basic color='red' inverted onClick={() => setOpenExperience(false)}>
@@ -268,29 +191,7 @@ export default function CurriculumVitaeAdd() {
                         DİL EKLE
                     </Header>
                     <Modal.Content>
-                        <Form>
-                            <Segment.Group horizontal>
-                                <Segment>
-                                    <Form.Field>
-                                        <Header as='h4'>Dil:
-                                            <Dropdown style={{
-                                                marginLeft: '1em'
-                                            }}
-                                                placeholder='Dil seçiniz' search selection />
-                                        </Header>
-                                    </Form.Field>
-                                </Segment>
-                                <Segment>
-                                    <Header as='h4'>
-                                        Seviye:
-                                        <Rating style={{
-                                            marginLeft: '1em',
-                                            marginTop: '0.7em'
-                                        }} size='large' icon='star' defaultRating={1} maxRating={5} />
-                                    </Header>
-                                </Segment>
-                            </Segment.Group>
-                        </Form>
+                        <AddLanguage />
                     </Modal.Content>
                     <Modal.Actions>
                         <Button basic color='red' inverted onClick={() => setOpenLanguage(false)}>
@@ -318,6 +219,30 @@ export default function CurriculumVitaeAdd() {
                             www.github.com
                         </Header>
                     </Segment>
+                    <Modal
+                        basic
+                        onClose={() => setOpenGithub(false)}
+                        onOpen={() => setOpenGithub(true)}
+                        open={openGithub}
+                        size='small'
+                        trigger={<Button size='mini' primary icon>Düzenle</Button>}
+                    >
+                        <Header icon>
+                            <Icon name='archive' />
+                            SOSYAL MEDYA HESABI EKLE
+                        </Header>
+                        <Modal.Content>
+                            <AddSocialMedia />
+                        </Modal.Content>
+                        <Modal.Actions>
+                            <Button basic color='red' inverted onClick={() => setOpenGithub(false)}>
+                                <Icon name='remove' /> Kapat
+                            </Button>
+                            <Button color='green' inverted onClick={() => setOpenGithub(false)}>
+                                <Icon name='checkmark' /> Kaydet
+                            </Button>
+                        </Modal.Actions>
+                    </Modal>
                 </Segment.Group>
                 <Segment.Group horizontal>
                     <Segment>
@@ -331,51 +256,41 @@ export default function CurriculumVitaeAdd() {
                             www.linkedin.com
                         </Header>
                     </Segment>
-                </Segment.Group>
-                <Modal
-                    basic
-                    onClose={() => setOpenSocial(false)}
-                    onOpen={() => setOpenSocial(true)}
-                    open={openSocial}
-                    size='small'
-                    trigger={<Button primary icon>Ekle</Button>}
-                >
-                    <Header icon>
-                        <Icon name='archive' />
-                        SOSYAL MEDYA HESABI EKLE
-                    </Header>
-                    <Modal.Content>
-                        <Form>
-                            <Segment.Group horizontal>
-                                <Segment>
-                                    <Segment style={{ marginTop: '1em' }}>
-                                        <Header as='h4'>Platform:
-                                            <Dropdown style={{
-                                                marginLeft: '1em'
-                                            }}
-                                                placeholder='Platform seçiniz' search selection />
-                                        </Header>
-                                    </Segment>
-                                </Segment>
-                                <Segment>
+                    <Modal
+                        basic
+                        onClose={() => setOpenLinkedin(false)}
+                        onOpen={() => setOpenLinkedin(true)}
+                        open={openLinkedin}
+                        size='small'
+                        trigger={<Button size='mini' primary icon>Düzenle</Button>}
+                    >
+                        <Header icon>
+                            <Icon name='archive' />
+                            SOSYAL MEDYA HESABI EKLE
+                        </Header>
+                        <Modal.Content>
+                            <Form>
+                                <Segment.Group horizontal>
                                     <Segment>
-                                        <Header as='h4'>Link:</Header>
-                                        <input placeholder='url'></input>
+                                        <Segment>
+                                            <Header as='h4'>Link:</Header>
+                                            <input placeholder='url'></input>
+                                        </Segment>
                                     </Segment>
-                                </Segment>
-                            </Segment.Group>
-                        </Form>
-                    </Modal.Content>
-                    <Modal.Actions>
-                        <Button basic color='red' inverted onClick={() => setOpenSocial(false)}>
-                            <Icon name='remove' /> Kapat
-                        </Button>
-                        <Button color='green' inverted onClick={() => setOpenSocial(false)}>
-                            <Icon name='checkmark' /> Kaydet
-                        </Button>
-                    </Modal.Actions>
-                </Modal>
+                                </Segment.Group>
+                            </Form>
+                        </Modal.Content>
+                        <Modal.Actions>
+                            <Button basic color='red' inverted onClick={() => setOpenLinkedin(false)}>
+                                <Icon name='remove' /> Kapat
+                            </Button>
+                            <Button color='green' inverted onClick={() => setOpenLinkedin(false)}>
+                                <Icon name='checkmark' /> Kaydet
+                            </Button>
+                        </Modal.Actions>
+                    </Modal>
+                </Segment.Group>
             </Segment>
-        </div>
+        </div >
     )
 }
